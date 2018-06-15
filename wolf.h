@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:26:30 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/15 15:36:00 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/15 17:34:27 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,18 @@
 # define IN_MENU list->inside_menu
 # define MENU_S list->menu_selection
 # define MENU_MNB list->menu_map_nb
+
+typedef struct		s_util
+{
+	float			ratio;
+	float			ratio_s;
+	int				c_x;
+	int				c_y;
+	int				growth;
+	float			c_ratio;
+	float			c_ratio_s;
+	int				color_index;
+}					t_util;
 
 typedef struct			s_dot
 {
@@ -185,7 +197,7 @@ void		ft_draw_wall(t_mlx *list, int i, int x, t_point o);
 void		free_them_all(t_mlx *list);
 void		place_player(t_mlx *list);
 void		place_the_player2(t_mlx *list);
-void		draw_square(t_mlx *list);
+void		fill_tab(t_mlx *list, int **tab);
 void		minimap_table(t_mlx *list);
 void		color_squares(t_mlx *list, int startx, int starty, int wall);
 void		lets_draw_menu(t_mlx *list);
@@ -196,6 +208,7 @@ int			name_gen(t_mlx *list);
 void		put_pixel(t_dot d, t_mlx *list, t_color c);
 t_color		new_color(int r, int g, int b, int a);
 t_dot		new_dot(int x, int y);
-
+t_util		init_util(t_dot p1, t_dot p2, int mode);
+void		draw_line(t_dot p1, t_dot p2, t_mlx *list);
 
 #endif

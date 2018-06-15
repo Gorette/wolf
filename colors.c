@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:45:28 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/15 16:47:59 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/15 17:45:31 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	color_squares(t_mlx *list, int startx, int starty, int wall)
 	}
 // TEST ZONE
 	d = new_dot(49, 49);
-	put_pixel(new_dot(d.x + (cos(PLAYER->a - (FOV / 2)) * 47), d.y + (sin(PLAYER->a - (FOV / 2)) * 47)), list, new_color(200, 0, 0, 0));
-	put_pixel(new_dot(d.x + (cos(PLAYER->a + (FOV / 2)) * 47), d.y + (sin(PLAYER->a + (FOV / 2)) * 47)), list, new_color(200, 0, 0, 0));
-// TEST ZONE
+	draw_line(d, new_dot(d.x + (cos(PLAYER->a - (FOV / 2)) * 30), d.y + (sin(PLAYER->a - (FOV / 2)) * 30)), list);
+	draw_line(d, new_dot(d.x + (cos(PLAYER->a + (FOV / 2)) * 30), d.y + (sin(PLAYER->a + (FOV / 2)) * 30)),list);
+	// TEST ZONE
 }

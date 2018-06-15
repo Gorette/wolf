@@ -13,6 +13,7 @@ SRCS = 	wolf.c			\
 		draw.c			\
 		minimap.c		\
 		utils_ax.c		\
+		draw_line.c		\
 
 SRCO = $(SRCS:.c=.o)
 

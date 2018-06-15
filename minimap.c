@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/26 15:11:32 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/15 16:46:24 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/15 17:04:22 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,28 +87,4 @@ void		minimap_table(t_mlx *list)
 		count++;
 	}
 	list->minimap = tab;
-}
-
-void		draw_square(t_mlx *list)
-{
-	t_dot	d;
-	int		x;
-	int		y;
-
-	y = 2;
-	while (y < list->minimap_h - 2)
-	{
-		x = 0;
-		while (x < list->minimap_l)
-		{
-			if (x >= 2 && x <= list->minimap_l - 2)
-			{
-				d = new_dot(x, y);
-				put_pixel(d, list, new_color(50, 50, 50, 0));
-			}
-			x++;
-		}
-		y++;
-	}
-	fill_tab(list, list->minimap);
 }

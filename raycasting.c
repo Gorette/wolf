@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:46:06 by ceugene           #+#    #+#             */
-/*   Updated: 2018/05/26 14:34:42 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/15 17:04:13 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,5 @@ void			lets_cast(t_mlx *list)
 		lets_search(x, list, o);
 		x++;
 	}
-	draw_square(list);
+	fill_tab(list, list->minimap);
 }
