@@ -21,7 +21,7 @@ void	large_angle(t_dot p2, t_mlx *list, t_util u)
 			u.c_x++;
 			u.ratio_s -= u.ratio;
 		}
-		put_pixel(new_dot(u.c_x, u.c_y), list, new_color(150, 0, 0, 0));
+		put_pixel(new_dot(u.c_x, u.c_y), list, new_color(146, 244, 66, 0));
 		u.ratio_s += 1;
 		u.c_y += u.growth;
 	}
@@ -36,7 +36,7 @@ void	sharp_angle(t_dot p2, t_mlx *list, t_util u)
 			u.c_y += u.growth;
 			u.ratio_s -= u.ratio;
 		}
-		put_pixel(new_dot(u.c_x, u.c_y), list, new_color(150, 0, 0, 0));
+		put_pixel(new_dot(u.c_x, u.c_y), list, new_color(146, 244, 66, 0));
 		u.ratio_s += 1;
 		u.c_x++;
 	}
@@ -51,7 +51,7 @@ void	vertical_line(t_dot p1, t_dot p2, t_mlx *list)
 	c_y = p1.y;
 	while (c_y != p2.y)
 	{
-		put_pixel(new_dot(p1.x, c_y), list, new_color(150, 0, 0, 0));
+		put_pixel(new_dot(p1.x, c_y), list, new_color(146, 244, 66, 0));
 		c_y += 1;
 	}
 }
@@ -63,7 +63,7 @@ void	horizontal_line(t_dot p1, t_dot p2, t_mlx *list)
 	c_x = p1.x;
 	while (c_x != p2.x)
 	{
-		put_pixel(new_dot(c_x, p1.y), list, new_color(150, 0, 0, 0));
+		put_pixel(new_dot(c_x, p1.y), list, new_color(146, 244, 66, 0));
 		c_x++;
 	}
 }

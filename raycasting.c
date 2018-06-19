@@ -123,5 +123,5 @@ void			lets_cast(t_mlx *list)
 		lets_search(x, list, o);
 		x++;
 	}
-	fill_tab(list, list->minimap);
+	fill_tab(list, list->minimap, 0, 0);
 }

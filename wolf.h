@@ -197,7 +197,7 @@ void		ft_draw_wall(t_mlx *list, int i, int x, t_point o);
 void		free_them_all(t_mlx *list);
 void		place_player(t_mlx *list);
 void		place_the_player2(t_mlx *list);
-void		fill_tab(t_mlx *list, int **tab);
+void		fill_tab(t_mlx *list, int **tab, int posy, int posyx);
 void		minimap_table(t_mlx *list);
 void		color_squares(t_mlx *list, int startx, int starty, int wall);
 void		lets_draw_menu(t_mlx *list);

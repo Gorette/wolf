@@ -31,10 +31,8 @@ void		color_minimap(t_mlx *list, int **tab)
 	}
 }
 
-void		fill_tab(t_mlx *list, int **tab)
+void		fill_tab(t_mlx *list, int **tab, int posy, int posx)
 {
-	int		posx;
-	int		posy;
 	int		count;
 	int		select;
 
@@ -46,7 +44,8 @@ void		fill_tab(t_mlx *list, int **tab)
 		posx = (int)(PLAYER->x) - 9;
 		while (++select < SQ_NB)
 		{
-			if (posy < 0 || posy > STAGE->map_ha || posx < 0 || posx > STAGE->map_la)
+			if (posy < 0 || posy > STAGE->map_ha || posx < 0
+				|| posx > STAGE->map_la)
 				tab[count][select] = 2;
 			else if (MAP[posy][posx] == '1')
 				tab[count][select] = 1;
