@@ -65,6 +65,8 @@ int		move_dir(int key, t_mlx *list)
 	}
 	PLAYER->x = x;
 	PLAYER->y = y;
+	if (MAP[(int)y][(int)x] == 'E')
+		next_level(list);
 	image_replacer(list);
 	return (0);
 }

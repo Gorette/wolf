@@ -59,6 +59,8 @@ void	color_squares(t_mlx *list, int startx, int starty, int wall)
 			put_pixel(new_dot(s, c), list, new_color(clr, clr, clr, 0));
 			if (wall == 3)
 				put_pixel(new_dot(s, c), list, new_color(200, clr, clr, 0));
+			if (wall == 4)
+				put_pixel(new_dot(s, c), list, new_color(clr, 200, clr, 0));
 		}
 	}
 // TEST ZONE

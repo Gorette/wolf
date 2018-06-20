@@ -37,12 +37,12 @@ void		fill_tab(t_mlx *list, int **tab, int posy, int posx)
 	int		select;
 
 	count = -1;
-	posy = (int)(PLAYER->y) - 9;
-	while (++count < SQ_NB)
+	posy = (int)(PLAYER->y) - 9 - 1;
+	while (++count < SQ_NB && ++posy < STAGE->map_ha * 2)
 	{
 		select = -1;
-		posx = (int)(PLAYER->x) - 9;
-		while (++select < SQ_NB)
+		posx = (int)(PLAYER->x) - 9 - 1;
+		while (++select < SQ_NB && ++posx <= STAGE->map_la * 2)
 		{
 			if (posy < 0 || posy > STAGE->map_ha || posx < 0
 				|| posx > STAGE->map_la)
@@ -51,11 +51,11 @@ void		fill_tab(t_mlx *list, int **tab, int posy, int posx)
 				tab[count][select] = 1;
 			else if (posy == floor(PLAYER->y) && posx == floor(PLAYER->x))
 				tab[count][select] = 3;
+			else if (MAP[posy][posx] == 'E')
+				tab[count][select] = 4;
 			else
 				tab[count][select] = 0;
-			posx++;
 		}
-		posy++;
 	}
 	color_minimap(list, tab);
 }
