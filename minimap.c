@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/26 15:11:32 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/15 17:04:22 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/21 16:14:40 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		color_minimap(t_mlx *list, int **tab)
 		}
 		count++;
 	}
+	draw_fov(list);
 }
 
 void		fill_tab(t_mlx *list, int **tab, int posy, int posx)

@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:50:11 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/15 16:46:32 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/21 17:06:42 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	init_list(t_mlx *list)
 	if (!(IMG_PTR = mlx_new_image(MLX_PTR, LA, HA)))
 		ft_fail("Error: Unable to create image.", list);
 	if (!(IMG_DATA = mlx_get_data_addr(IMG_PTR, &BPP, &S_L, &END)))
+		ft_fail("Error: Unable to access image data.", list);
+	if (!(MMAP_PTR = mlx_new_image(MLX_PTR, LA, HA)))
+		ft_fail("Error: Unable to create image.", list);
+	if (!(MMAP_STR = mlx_get_data_addr(MMAP_PTR, &BPP, &S_L, &END)))
 		ft_fail("Error: Unable to access image data.", list);
 	BPP = BPP / 8;
 	STAGE = new_stage(list);

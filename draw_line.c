@@ -6,7 +6,7 @@
 /*   By: axbal <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 12:44:40 by axbal             #+#    #+#             */
-/*   Updated: 2018/06/15 17:42:28 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/21 17:08:52 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ void	large_angle(t_dot p2, t_mlx *list, t_util u)
 			u.c_x++;
 			u.ratio_s -= u.ratio;
 		}
-		put_pixel(new_dot(u.c_x, u.c_y), list, new_color(146, 244, 66, 0));
+		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 0] =
+			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 0] + 40;
+		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 1] =
+			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 1] + 90;
+		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 2] =
+			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 2] + 40;
+		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 3] = (char)75;
 		u.ratio_s += 1;
 		u.c_y += u.growth;
 	}
@@ -36,7 +42,13 @@ void	sharp_angle(t_dot p2, t_mlx *list, t_util u)
 			u.c_y += u.growth;
 			u.ratio_s -= u.ratio;
 		}
-		put_pixel(new_dot(u.c_x, u.c_y), list, new_color(146, 244, 66, 0));
+		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 0] =
+			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 0] + 40;
+		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 1] =
+			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 1] + 90;
+		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 2] =
+			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 2] + 40;
+		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 3] = (char)75;
 		u.ratio_s += 1;
 		u.c_x++;
 	}
@@ -51,7 +63,13 @@ void	vertical_line(t_dot p1, t_dot p2, t_mlx *list)
 	c_y = p1.y;
 	while (c_y != p2.y)
 	{
-		put_pixel(new_dot(p1.x, c_y), list, new_color(146, 244, 66, 0));
+		MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 0] =
+			IMG_DATA[(p1.x * BPP) + (c_y * S_L) + 0] + 40;
+		MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 1] =
+			IMG_DATA[(p1.x * BPP) + (c_y * S_L) + 1] + 90;
+		MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 2] =
+			IMG_DATA[(p1.x * BPP) + (c_y * S_L) + 2] + 40;
+		MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 3] = (char)75;
 		c_y += 1;
 	}
 }
@@ -63,7 +81,13 @@ void	horizontal_line(t_dot p1, t_dot p2, t_mlx *list)
 	c_x = p1.x;
 	while (c_x != p2.x)
 	{
-		put_pixel(new_dot(c_x, p1.y), list, new_color(146, 244, 66, 0));
+		MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 0] =
+			IMG_DATA[(c_x * BPP) + (p1.y * S_L) + 0] + 40;
+		MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 1] =
+			IMG_DATA[(c_x * BPP) + (p1.y * S_L) + 1] + 90;
+		MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 2] =
+			IMG_DATA[(c_x * BPP) + (p1.y * S_L) + 2] + 40;
+		MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 3] = (char)75;
 		c_x++;
 	}
 }

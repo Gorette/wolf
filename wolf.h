@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:26:30 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/15 17:34:27 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/21 16:39:03 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@
 # define IN_MENU list->inside_menu
 # define MENU_S list->menu_selection
 # define MENU_MNB list->menu_map_nb
+# define MMAP_PTR list->minimap_img_ptr
+# define MMAP_STR list->minimap_img_str
 
 typedef struct		s_util
 {
@@ -172,6 +174,8 @@ typedef struct			s_mlx
 	int					inside_menu;
 	int					menu_selection;
 	int					menu_map_nb;
+	void				*minimap_img_ptr;
+	char				*minimap_img_str;
 }						t_mlx;
 
 void		ft_fail(char *str, t_mlx *list);
@@ -210,5 +214,6 @@ t_color		new_color(int r, int g, int b, int a);
 t_dot		new_dot(int x, int y);
 t_util		init_util(t_dot p1, t_dot p2, int mode);
 void		draw_line(t_dot p1, t_dot p2, t_mlx *list);
+void		draw_fov(t_mlx *list);
 
 #endif
