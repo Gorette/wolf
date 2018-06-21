@@ -68,6 +68,8 @@ void	draw_fov(t_mlx *list)
 {
 	double	ray;
 	t_dot	d;
+	int		x;
+	int		y;
 
 	ft_memset(MMAP_STR, 255, (LA * BPP + HA * S_L));
 	d = new_dot(49, 49);
@@ -76,5 +78,28 @@ void	draw_fov(t_mlx *list)
 	{
 		draw_line(d, new_dot(d.x + (cos(PLAYER->a + ray) * 30), d.y + (sin(PLAYER->a + ray) * 30)), list);
 		ray += (double)FOV / 64;
+	}
+	y = 0;
+	while (y < 300)
+	{
+		x = 0;
+		while (x < 200)
+		{
+			while (MMAP_STR[x * BPP + y * S_L + 3] == (char)255)
+			{
+				x++;
+				if (x > 200)
+				{
+					x = 0;
+					y++;
+				}
+			}
+			d.x = x;
+			d.y = y;
+			while (MMAP_STR[x * BPP + y * S_L + 3] != (char)255 || MMAP_STR[(x + 1) * BPP + y * S_L + 3] != (char)255 || MMAP_STR[(x + 2) * BPP + y * S_L + 3] != (char)255)
+				x++;
+			draw_line(d, new_dot(x, y), list);
+		}
+		y++;
 	}
 }
