@@ -21,13 +21,13 @@ void	large_angle(t_dot p2, t_mlx *list, t_util u)
 			u.c_x++;
 			u.ratio_s -= u.ratio;
 		}
-		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 0] =
-			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 0] + 40;
-		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 1] =
-			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 1] + 90;
-		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 2] =
-			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 2] + 40;
-		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 3] = (char)75;
+		if (IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 2] != (char)200)
+		{
+			MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 0] = (char)190;
+			MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 1] = (char)210;
+			MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 2] = (char)170;
+			MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 3] = (char)95;
+		}
 		u.ratio_s += 1;
 		u.c_y += u.growth;
 	}
@@ -42,13 +42,13 @@ void	sharp_angle(t_dot p2, t_mlx *list, t_util u)
 			u.c_y += u.growth;
 			u.ratio_s -= u.ratio;
 		}
-		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 0] =
-			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 0] + 40;
-		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 1] =
-			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 1] + 90;
-		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 2] =
-			IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 2] + 40;
-		MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 3] = (char)75;
+		if (IMG_DATA[(u.c_x * BPP) + (u.c_y * S_L) + 2] != (char)200)
+		{
+			MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 0] = (char)190;
+			MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 1] = (char)210;
+			MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 2] = (char)170;
+			MMAP_STR[(u.c_x * BPP) + (u.c_y * S_L) + 3] = (char)95;
+		}
 		u.ratio_s += 1;
 		u.c_x++;
 	}
@@ -63,13 +63,13 @@ void	vertical_line(t_dot p1, t_dot p2, t_mlx *list)
 	c_y = p1.y;
 	while (c_y != p2.y)
 	{
-		MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 0] =
-			IMG_DATA[(p1.x * BPP) + (c_y * S_L) + 0] + 40;
-		MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 1] =
-			IMG_DATA[(p1.x * BPP) + (c_y * S_L) + 1] + 90;
-		MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 2] =
-			IMG_DATA[(p1.x * BPP) + (c_y * S_L) + 2] + 40;
-		MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 3] = (char)75;
+		if (IMG_DATA[(p1.x * BPP) + (c_y * S_L) + 2] != (char)200)
+		{
+			MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 0] = (char)190;
+			MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 1] = (char)210;
+			MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 2] = (char)170;
+			MMAP_STR[(p1.x * BPP) + (c_y * S_L) + 3] = (char)95;
+		}
 		c_y += 1;
 	}
 }
@@ -81,13 +81,13 @@ void	horizontal_line(t_dot p1, t_dot p2, t_mlx *list)
 	c_x = p1.x;
 	while (c_x != p2.x)
 	{
-		MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 0] =
-			IMG_DATA[(c_x * BPP) + (p1.y * S_L) + 0] + 40;
-		MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 1] =
-			IMG_DATA[(c_x * BPP) + (p1.y * S_L) + 1] + 90;
-		MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 2] =
-			IMG_DATA[(c_x * BPP) + (p1.y * S_L) + 2] + 40;
-		MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 3] = (char)75;
+		if (IMG_DATA[(c_x * BPP) + (p1.y * S_L) + 2] != (char)200)
+		{
+			MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 0] = (char)190;
+			MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 1] = (char)210;
+			MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 2] = (char)170;
+			MMAP_STR[(c_x * BPP) + (p1.y * S_L) + 3] = (char)95;
+		}
 		c_x++;
 	}
 }

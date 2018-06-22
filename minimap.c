@@ -24,7 +24,7 @@ void		color_minimap(t_mlx *list, int **tab)
 		while (select < SQ_NB)
 		{
 			color_squares(list, SQ_S * select + 2, SQ_S * count 
-			+ 2, tab[count][select]);
+				+ 2, tab[count][select]);
 			select++;
 		}
 		count++;
@@ -37,6 +37,7 @@ void		fill_tab(t_mlx *list, int **tab, int posy, int posx)
 	int		count;
 	int		select;
 
+	minimap_table(list);
 	count = -1;
 	posy = (int)(PLAYER->y) - 9 - 1;
 	while (++count < SQ_NB && ++posy < STAGE->map_ha * 2)
@@ -45,6 +46,7 @@ void		fill_tab(t_mlx *list, int **tab, int posy, int posx)
 		posx = (int)(PLAYER->x) - 9 - 1;
 		while (++select < SQ_NB && ++posx <= STAGE->map_la * 2)
 		{
+			tab[count][select] = 0;
 			if (posy < 0 || posy > STAGE->map_ha || posx < 0
 				|| posx > STAGE->map_la)
 				tab[count][select] = 2;
@@ -54,8 +56,6 @@ void		fill_tab(t_mlx *list, int **tab, int posy, int posx)
 				tab[count][select] = 3;
 			else if (MAP[posy][posx] == 'E')
 				tab[count][select] = 4;
-			else
-				tab[count][select] = 0;
 		}
 	}
 	color_minimap(list, tab);
@@ -68,23 +68,24 @@ void		minimap_table(t_mlx *list)
 	int		select;
 
 	count = -1;
-	if (!(tab = malloc(sizeof(int *) * SQ_NB)))
-		ft_fail("Error: Unable to allocate memory.", list);
+	if (list->minimap == NULL)
+	{
+		if (!(tab = malloc(sizeof(int *) * SQ_NB)))
+			ft_fail("Error: Unable to allocate memory.", list);
+		while (++count < SQ_NB)
+		{
+			if (!(tab[count] = malloc(sizeof(int) * SQ_NB)))
+				ft_fail("Error: Unable to allocate memory.", list);
+		}
+		list->minimap = tab;
+	}
+	else
+		tab = list->minimap;
+	count = -1;
 	while (++count < SQ_NB)
 	{
-		if (!(tab[count] = malloc(sizeof(int) * SQ_NB)))
-			ft_fail("Error: Unable to allocate memory.", list);
+		select = -1;
+		while (++select < SQ_NB)
+			tab[count][select] = 2;
 	}
-	count = 0;
-	while (count < SQ_NB)
-	{
-		select = 0;
-		while (select < SQ_NB)
-		{
-			tab[count][select] = 0;
-			select++;
-		}
-		count++;
-	}
-	list->minimap = tab;
 }

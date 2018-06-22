@@ -64,23 +64,9 @@ void	color_squares(t_mlx *list, int startx, int starty, int wall)
 	}
 }
 
-void	draw_fov(t_mlx *list)
+void	fill_fov(t_mlx *list, int x, int y, t_dot d)
 {
-	double	ray;
-	t_dot	d;
-	int		x;
-	int		y;
-
-	ft_memset(MMAP_STR, 255, (LA * BPP + HA * S_L));
-	d = new_dot(49, 49);
-	ray = -(FOV / 2);
-	while (ray < FOV / 2)
-	{
-		draw_line(d, new_dot(d.x + (cos(PLAYER->a + ray) * 30), d.y + (sin(PLAYER->a + ray) * 30)), list);
-		ray += (double)FOV / 64;
-	}
-	y = 0;
-	while (y < 300)
+	while (++y < 300)
 	{
 		x = 0;
 		while (x < 200)
@@ -96,10 +82,28 @@ void	draw_fov(t_mlx *list)
 			}
 			d.x = x;
 			d.y = y;
-			while (MMAP_STR[x * BPP + y * S_L + 3] != (char)255 || MMAP_STR[(x + 1) * BPP + y * S_L + 3] != (char)255 || MMAP_STR[(x + 2) * BPP + y * S_L + 3] != (char)255)
+			while (MMAP_STR[x * BPP + y * S_L + 3] != (char)255
+				|| MMAP_STR[(x + 1) * BPP + y * S_L + 3] != (char)255
+					|| MMAP_STR[(x + 2) * BPP + y * S_L + 3] != (char)255)
 				x++;
 			draw_line(d, new_dot(x, y), list);
 		}
-		y++;
 	}
+}
+
+void	draw_fov(t_mlx *list)
+{
+	double	ray;
+	t_dot	d;
+
+	ft_memset(MMAP_STR, 255, (LA * BPP + HA * S_L));
+	d = new_dot(49, 49);
+	ray = -(FOV / 2);
+	while (ray < FOV / 2)
+	{
+		draw_line(d, new_dot(d.x + (cos(PLAYER->a + ray) * 30),
+			d.y + (sin(PLAYER->a + ray) * 30)), list);
+		ray += (double)FOV / 64;
+	}
+	fill_fov(list, 0, -1, d);
 }

@@ -12,7 +12,7 @@ SRCS = 	wolf.c			\
 		events.c		\
 		draw.c			\
 		minimap.c		\
-		utils_ax.c		\
+		dot.c			\
 		draw_line.c		\
 
 SRCO = $(SRCS:.c=.o)
