@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf.h"
+#include "wolf3d.h"
 
 void	texture_the_floor(int x, t_mlx *list, int color_floor)
 {

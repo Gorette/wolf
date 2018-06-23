@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./wolf.h"
+#include "./wolf3d.h"
 
 void	large_angle(t_dot p2, t_mlx *list, t_util u)
 {

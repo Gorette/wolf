@@ -1,6 +1,6 @@
 NAME = wolf3d
 
-SRCS = 	wolf.c			\
+SRCS = 	wolf3d.c		\
 		reading.c		\
 		utilitaries.c	\
 		utilitaries2.c	\

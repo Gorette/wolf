@@ -1,5 +1,5 @@
 
-#include "wolf.h"
+#include "wolf3d.h"
 
 void		place_the_player2(t_mlx *list)
 {

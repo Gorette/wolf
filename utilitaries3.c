@@ -1,4 +1,4 @@
-#include "wolf.h"
+#include "wolf3d.h"
 
 int		map_searcher(t_mlx * list)
 {

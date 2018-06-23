@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf.h"
+#include "wolf3d.h"
 
 void			lets_persp(int x, float dist, t_mlx *list, t_point o)
 {
