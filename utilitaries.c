@@ -38,6 +38,7 @@ t_mlx			*new_list(void)
 		ft_fail("Error: Could not allocate memory.", NULL);
 	new->map = NULL;
 	new->minimap = NULL;
+	new->texture_mode = 1;
 	return (new);
 }
 

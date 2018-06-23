@@ -25,7 +25,7 @@ t_color		new_color(int r, int g, int b, int a)
 
 void	attribute_text_color_to_image(t_mlx *list, int i, int pos, t_point o)
 {
-	if (list->t[i].data[(int)o.x * list->t[i].bpp
+	if (TEX_ON && list->t[i].data[(int)o.x * list->t[i].bpp
 		+ (int)o.y * list->t[i].s_l] + 3 < 255)
 	{
 		IMG_DATA[pos + 0] = (char)list->t[i].data[(int)o.x * list->t[i].bpp
@@ -34,6 +34,13 @@ void	attribute_text_color_to_image(t_mlx *list, int i, int pos, t_point o)
 			+ (int)o.y * list->t[i].s_l + 1];
 		IMG_DATA[pos + 2] = (char)list->t[i].data[(int)o.x * list->t[i].bpp
 			+ (int)o.y * list->t[i].s_l + 2];
+		IMG_DATA[pos + 3] = (char)(0 + ((int)DIST * 2 % 200) % 255);
+	}
+	else if (!(TEX_ON))
+	{
+		IMG_DATA[pos + 0] = (char)100 + i * i;
+		IMG_DATA[pos + 1] = (char)100 + i * 30;
+		IMG_DATA[pos + 2] = (char)100 + i * 40;
 		IMG_DATA[pos + 3] = (char)(0 + ((int)DIST * 2 % 200) % 255);
 	}
 }

@@ -12,33 +12,6 @@
 
 #include "wolf3d.h"
 
-void	texture_the_floor(int x, t_mlx *list, int color_floor)
-{
-	float		h_floor_step;
-	float		distance_saved;
-	float		distx;
-	float		disty;
-	float		f_distx;
-	float		f_disty;
-	int			pos;
-	t_point		o;
-
-	h_floor_step = DIST / (HA - FLOOR);
-	distance_saved = DIST;
-	while (++color_floor < HA)
-	{
-		pos = (x * BPP) + (color_floor * S_L);
-		distx = (float)(PLAYER->x + PLAYER->eye_x * distance_saved);
-		disty = (float)(PLAYER->y + PLAYER->eye_y * distance_saved);
-		f_distx = (distx - floor(distx)) * list->t[5].width;
-		f_disty = (disty - floor(disty)) * list->t[5].height;
-		o.x = (int)f_distx;
-		o.y = (int)f_disty;
-		attribute_text_color_to_image(list, 5, pos, o);
-		distance_saved -= h_floor_step;
-	}
-}
-
 void	color_the_floor(int x, t_mlx *list, int color_floor)
 {
 	int			pos;

@@ -63,6 +63,7 @@
 # define MENU_MNB list->menu_map_nb
 # define MMAP_PTR list->minimap_img_ptr
 # define MMAP_STR list->minimap_img_str
+# define TEX_ON list->texture_mode
 
 typedef struct		s_util
 {
@@ -176,6 +177,7 @@ typedef struct			s_mlx
 	int					menu_map_nb;
 	void				*minimap_img_ptr;
 	char				*minimap_img_str;
+	int					texture_mode;
 }						t_mlx;
 
 void		ft_fail(char *str, t_mlx *list);
@@ -215,5 +217,6 @@ t_dot		new_dot(int x, int y);
 t_util		init_util(t_dot p1, t_dot p2, int mode);
 void		draw_line(t_dot p1, t_dot p2, t_mlx *list);
 void		draw_fov(t_mlx *list);
+void		texture_mode(t_mlx *list);
 
 #endif

@@ -33,8 +33,9 @@ void			lets_persp(int x, float dist, t_mlx *list, t_point o)
 	if (dist < MAXDIST)
 	{
 		WALLR = (float)(list->t[i].height) / WALLH;
-		o.x = get_ox(list, dist, i);
-		if (ROOF < 0)
+		if (TEX_ON)
+			o.x = get_ox(list, dist, i);
+		if (ROOF < 0 && TEX_ON)
 			o.y = abs(ROOF) * WALLR;
 		ft_draw_wall(list, i, x, o);
 	}

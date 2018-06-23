@@ -22,3 +22,15 @@ int		map_searcher(t_mlx * list)
 	close(fd);
 	return (1);
 }
+
+void	texture_mode(t_mlx *list)
+{
+	if (!(IN_MENU))
+	{
+		if (TEX_ON)
+			TEX_ON = 0;
+		else
+			TEX_ON = 1;
+		image_replacer(list);
+	}
+}

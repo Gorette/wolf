@@ -74,9 +74,9 @@ int		move_dir(int key, t_mlx *list)
 int		move_side(int key, t_mlx *list)
 {
 	if (key == 123)
-		PLAYER->a -= 0.02;
+		PLAYER->a -= 0.05;
 	else if (key == 124)
-		PLAYER->a += 0.02;
+		PLAYER->a += 0.05;
 	if (PLAYER->a >= 6.30 || PLAYER->a <= -6.30)
 		PLAYER->a = 0;
 	image_replacer(list);
@@ -89,5 +89,7 @@ int		key_manager(int key, void *list)
 		window_closed(list);
 	if (key == 35)
 		next_level(list);
+	if (key == 17)
+		texture_mode(list);
 	return (0);
 }
