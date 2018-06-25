@@ -6,15 +6,15 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:26:30 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/25 14:27:23 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/25 15:30:40 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF_H
 # define WOLF_H
 
-# include "./minilibx_macos/mlx.h"
-# include "./libft/libft.h"
+# include "../minilibx_macos/mlx.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 # include <math.h>
 

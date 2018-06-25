@@ -13,7 +13,7 @@ SRCS = 	wolf3d.c		\
 		draw.c			\
 		minimap.c		\
 		dot.c			\
-		draw_line.c		\
+		draw_line.c	\
 
 SRCO = $(SRCS:.c=.o)
 
@@ -24,13 +24,15 @@ FRMW = -framework OpenGL -framework Appkit
 LIB =	./libft/libft.a			\
 		./minilibx_macos/libmlx.a	\
 
-SRC_PATH = .
+SRC_PATH = srcs
 
 OBJ_PATH = compiled_objects
 
 SRC = $(addprefix $(SRCS_PATH)/,$(SRCS))
 
 OBJ = $(addprefix $(OBJ_PATH)/,$(SRCO))
+
+INCLUDES = includes
 
 .PHONY: all, clean, fclean, re
 
@@ -41,7 +43,7 @@ $(NAME): $(LIB) $(OBJ)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	gcc -c $(FLAGS) -o $@ -c $<
+	gcc -c $(FLAGS) -I$(INCLUDES) -o $@ -c $<
 
 $(LIB):
 	make -C libft
