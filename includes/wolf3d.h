@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:26:30 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/25 15:30:40 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/25 16:42:26 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,7 @@ typedef struct			s_mlx
 	void				*minimap_img_ptr;
 	char				*minimap_img_str;
 	int					texture_mode;
+	int					*move_tab;
 }						t_mlx;
 
 void		ft_fail(char *str, t_mlx *list);
@@ -186,7 +187,7 @@ t_level		*new_stage(t_mlx *list);
 t_player	*new_player(t_mlx *list);
 void		read_map(t_mlx *list);
 void		lets_cast(t_mlx *list);
-int			key_manager(int key, void *list);
+int			key_release(int key, void *list);
 int			window_closed(t_mlx *list);
 void		let_mlx_loop(t_mlx *list);
 void		image_replacer(t_mlx *list);
@@ -218,5 +219,9 @@ t_util		init_util(t_dot p1, t_dot p2, int mode);
 void		draw_line(t_dot p1, t_dot p2, t_mlx *list);
 void		draw_fov(t_mlx *list);
 void		texture_mode(t_mlx *list);
+void		init_move_tab(t_mlx *list);
+int			read_move_tab(t_mlx *list);
+void		deactivate_key(int key, t_mlx *list);
+void		activate_key(int key, t_mlx *list);
 
 #endif

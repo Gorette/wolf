@@ -13,7 +13,8 @@ SRCS = 	wolf3d.c		\
 		draw.c			\
 		minimap.c		\
 		dot.c			\
-		draw_line.c	\
+		draw_line.c		\
+		move_tab.c		\
 
 SRCO = $(SRCS:.c=.o)
 

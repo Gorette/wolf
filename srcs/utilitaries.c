@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:48:20 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/21 17:12:06 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/25 16:50:51 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ void			ft_fail(char *str, t_mlx *list)
 
 void			let_mlx_loop(t_mlx *list)
 {
-	mlx_key_hook(WIN_PTR, &key_manager, list);
 	mlx_hook(WIN_PTR, 17, 1L << 17, &window_closed, list);
 	mlx_hook(WIN_PTR, 2, 1L << 0, &key_pressed, list);
+	mlx_hook(WIN_PTR, 3, 1L << 1, &key_release, list);
+	mlx_loop_hook(MLX_PTR, &read_move_tab, list);
 	mlx_loop(MLX_PTR);
 }
 
@@ -37,6 +38,7 @@ t_mlx			*new_list(void)
 	if (!(new = (t_mlx *)malloc(sizeof(t_mlx) * 1)))
 		ft_fail("Error: Could not allocate memory.", NULL);
 	new->map = NULL;
+	new->move_tab = NULL;
 	new->minimap = NULL;
 	new->texture_mode = 1;
 	return (new);

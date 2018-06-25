@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:45:47 by ceugene           #+#    #+#             */
-/*   Updated: 2018/05/26 14:40:45 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/25 16:47:15 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,7 @@ int		window_closed(t_mlx *list)
 int		key_pressed(int key, t_mlx *list)
 {
 	if (IN_MENU == 0)
-	{
-		if (key == 126 || key == 125)
-			move_dir(key, list);
-		else if (key == 123 || key == 124)
-			move_side(key, list);
-	}
+		activate_key(key, list);
 	else
 	{
 		if (key == 123 && MENU_S == 1 && MENU_MNB > 0)
@@ -41,6 +36,7 @@ int		key_pressed(int key, t_mlx *list)
 			choice_selected(list);
 		image_replacer(list);
 	}
+	read_move_tab(list);
 	return (0);
 }
 
@@ -67,7 +63,6 @@ int		move_dir(int key, t_mlx *list)
 	PLAYER->y = y;
 	if (MAP[(int)y][(int)x] == 'E')
 		next_level(list);
-	image_replacer(list);
 	return (0);
 }
 
@@ -79,11 +74,10 @@ int		move_side(int key, t_mlx *list)
 		PLAYER->a += 0.05;
 	if (PLAYER->a >= 6.30 || PLAYER->a <= -6.30)
 		PLAYER->a = 0;
-	image_replacer(list);
 	return (0);
 }
 
-int		key_manager(int key, void *list)
+int		key_release(int key, void *list)
 {
 	if (key == 53 || key == 12)
 		window_closed(list);
@@ -91,5 +85,6 @@ int		key_manager(int key, void *list)
 		next_level(list);
 	if (key == 17)
 		texture_mode(list);
+	deactivate_key(key, list);
 	return (0);
 }
