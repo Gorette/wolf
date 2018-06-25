@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:26:30 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/21 16:39:03 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/25 14:27:23 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,7 @@ void		let_mlx_loop(t_mlx *list);
 void		image_replacer(t_mlx *list);
 void		generate_texture(t_mlx *list);
 void		next_level(t_mlx *list);
-void		attribute_text_color_to_image(t_mlx *list, int i, int p, t_point o);
+void		att_text_color_to_image(t_mlx *list, int i, int p, t_point o);
 float		get_ox(t_mlx *list, float dist, int i);
 int			key_pressed(int key, t_mlx *list);
 int			move_dir(int key, t_mlx *list);

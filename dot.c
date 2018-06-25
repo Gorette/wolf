@@ -6,22 +6,22 @@
 /*   By: axbal <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/30 14:46:42 by axbal             #+#    #+#             */
-/*   Updated: 2018/06/15 17:25:55 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/25 14:24:28 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./wolf3d.h"
 
-t_dot	new_dot(int x, int y)
+t_dot			new_dot(int x, int y)
 {
-	t_dot	new;
+	t_dot		new;
 
 	new.x = x;
 	new.y = y;
 	return (new);
 }
 
-void	put_pixel(t_dot d, t_mlx *list, t_color c)
+void			put_pixel(t_dot d, t_mlx *list, t_color c)
 {
 	if (d.x >= 0 && d.x <= LA && d.y >= 0 && d.y < HA)
 	{
@@ -32,7 +32,7 @@ void	put_pixel(t_dot d, t_mlx *list, t_color c)
 	}
 }
 
-t_util		init_util(t_dot p1, t_dot p2, int mode)
+t_util			init_util(t_dot p1, t_dot p2, int mode)
 {
 	t_util		u;
 

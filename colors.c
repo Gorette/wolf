@@ -6,13 +6,13 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:45:28 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/21 17:18:43 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/25 14:28:19 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-t_color		new_color(int r, int g, int b, int a)
+t_color			new_color(int r, int g, int b, int a)
 {
 	t_color		new;
 
@@ -23,7 +23,7 @@ t_color		new_color(int r, int g, int b, int a)
 	return (new);
 }
 
-void	attribute_text_color_to_image(t_mlx *list, int i, int pos, t_point o)
+void			att_text_color_to_image(t_mlx *list, int i, int pos, t_point o)
 {
 	if (TEX_ON && list->t[i].data[(int)o.x * list->t[i].bpp
 		+ (int)o.y * list->t[i].s_l] + 3 < 255)
@@ -45,11 +45,11 @@ void	attribute_text_color_to_image(t_mlx *list, int i, int pos, t_point o)
 	}
 }
 
-void	color_squares(t_mlx *list, int startx, int starty, int wall)
+void			color_squares(t_mlx *list, int startx, int starty, int wall)
 {
-	int		c;
-	int		s;
-	int		clr;
+	int			c;
+	int			s;
+	int			clr;
 
 	clr = 130;
 	if (wall == 1)
@@ -71,7 +71,7 @@ void	color_squares(t_mlx *list, int startx, int starty, int wall)
 	}
 }
 
-void	fill_fov(t_mlx *list, int x, int y, t_dot d)
+void			fill_fov(t_mlx *list, int x, int y, t_dot d)
 {
 	while (++y < 300)
 	{
@@ -98,10 +98,10 @@ void	fill_fov(t_mlx *list, int x, int y, t_dot d)
 	}
 }
 
-void	draw_fov(t_mlx *list)
+void			draw_fov(t_mlx *list)
 {
-	double	ray;
-	t_dot	d;
+	double		ray;
+	t_dot		d;
 
 	ft_memset(MMAP_STR, 255, (LA * BPP + HA * S_L));
 	d = new_dot(49, 49);

@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:46:06 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/15 17:04:13 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/25 14:29:34 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			lets_persp(int x, float dist, t_mlx *list, t_point o)
 	int			i;
 
 	ROOF = (HA / 2 - LA / dist);
-	FLOOR = HA  - ROOF;
+	FLOOR = HA - ROOF;
 	WALLH = FLOOR - ROOF;
 	o.y = 0;
 	if (ROOF > 0 || FLOOR < HA + 1)

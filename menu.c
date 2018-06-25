@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   menu.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/25 14:25:15 by ceugene           #+#    #+#             */
+/*   Updated: 2018/06/25 14:25:18 by ceugene          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "wolf3d.h"
 
@@ -91,7 +102,7 @@ void		lets_draw_menu(t_mlx *list)
 		j = 0;
 		while (j < HA)
 		{
-			pos = (i* BPP + j * S_L);
+			pos = (i * BPP + j * S_L);
 			IMG_DATA[pos + 0] = (char)80;
 			IMG_DATA[pos + 1] = (char)30;
 			IMG_DATA[pos + 2] = (char)30;
@@ -103,4 +114,3 @@ void		lets_draw_menu(t_mlx *list)
 	lets_highlight(list);
 	lets_write(list);
 }
-

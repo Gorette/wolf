@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:45:35 by ceugene           #+#    #+#             */
-/*   Updated: 2018/05/26 15:19:41 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/25 14:27:50 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	ft_draw_wall(t_mlx *list, int i, int x, t_point o)
 			{
 				o.y += WALLR;
 				if (o.y > (float)(list->t[i].height))
-						o.y = 0;
-				attribute_text_color_to_image(list, i, pos, o);
+					o.y = 0;
+				att_text_color_to_image(list, i, pos, o);
 				if (DIST > 4)
 					IMG_DATA[pos + 3] += (char)(0 + ((int)DIST * 4 % 200));
 			}

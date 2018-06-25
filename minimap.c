@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/26 15:11:32 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/21 16:14:40 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/25 14:29:12 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		color_minimap(t_mlx *list, int **tab)
 		select = 0;
 		while (select < SQ_NB)
 		{
-			color_squares(list, SQ_S * select + 2, SQ_S * count 
+			color_squares(list, SQ_S * select + 2, SQ_S * count
 				+ 2, tab[count][select]);
 			select++;
 		}

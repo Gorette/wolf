@@ -6,13 +6,13 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:50:11 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/21 17:06:42 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/25 14:31:13 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-void		init_list2(t_mlx *list)
+void			init_list2(t_mlx *list)
 {
 	STAGE = new_stage(list);
 	MAXDIST = 40;
@@ -31,7 +31,7 @@ void		init_list2(t_mlx *list)
 	MENU_MNB = 0;
 }
 
-void	init_list(t_mlx *list)
+void			init_list(t_mlx *list)
 {
 	HA = 740;
 	LA = 1000;
@@ -51,7 +51,7 @@ void	init_list(t_mlx *list)
 	init_list2(list);
 }
 
-void	reload_pic(t_mlx *list)
+void			reload_pic(t_mlx *list)
 {
 	mlx_clear_window(MLX_PTR, WIN_PTR);
 	mlx_put_image_to_window(MLX_PTR, WIN_PTR, IMG_PTR, 0, 0);
@@ -59,9 +59,9 @@ void	reload_pic(t_mlx *list)
 		mlx_put_image_to_window(MLX_PTR, WIN_PTR, MMAP_PTR, 0, 0);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
-	t_mlx	*list;
+	t_mlx		*list;
 
 	if (argc && argv)
 	{
