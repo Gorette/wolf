@@ -17,6 +17,7 @@
 # include "../libft/libft.h"
 # include <stdlib.h>
 # include <math.h>
+# include <pthread.h>
 
 # define MLX_PTR list->mlx_ptr
 # define WIN_PTR list->win_ptr
@@ -64,6 +65,7 @@
 # define MMAP_PTR list->minimap_img_ptr
 # define MMAP_STR list->minimap_img_str
 # define TEX_ON list->texture_mode
+# define THREAD_NB list->thread_number
 
 typedef struct		s_util
 {
@@ -179,6 +181,9 @@ typedef struct			s_mlx
 	char				*minimap_img_str;
 	int					texture_mode;
 	int					*move_tab;
+	int					start;
+	int					limit;
+	int					thread_number;
 }						t_mlx;
 
 void		ft_fail(char *str, t_mlx *list);
@@ -223,5 +228,7 @@ void		init_move_tab(t_mlx *list);
 int			read_move_tab(t_mlx *list);
 void		deactivate_key(int key, t_mlx *list);
 void		activate_key(int key, t_mlx *list);
+void		*lets_cast2(void *lis);
+void		lets_search(int x, t_mlx *list, t_point o);
 
 #endif

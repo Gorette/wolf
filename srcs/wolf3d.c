@@ -30,6 +30,7 @@ void			init_list2(t_mlx *list)
 	MENU_S = 0;
 	MENU_MNB = 0;
 	init_move_tab(list);
+	THREAD_NB = 4;
 }
 
 void			init_list(t_mlx *list)

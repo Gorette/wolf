@@ -108,21 +108,28 @@ void			lets_search(int x, t_mlx *list, t_point o)
 	DIST = dist;
 }
 
+
 void			lets_cast(t_mlx *list)
 {
-	int			x;
-	t_point		o;
+	pthread_t	thread_tab[THREAD_NB];
+	int			calcul;
+	int			stamp;
 
-	x = 0;
-	o.y = 0;
-	o.x = 0;
-	while (x < LA)
+	stamp = THREAD_NB;
+	calcul = LA / THREAD_NB;
+	list->start = 0;
+	list->limit = calcul;
+	THREAD_NB -= 1;
+	while (THREAD_NB >= 0)
 	{
-		RAY = (PLAYER->a - FOV / 2) + ((float)x / (float)LA * FOV);
-		PLAYER->eye_x = cos(RAY);
-		PLAYER->eye_y = sin(RAY);
-		lets_search(x, list, o);
-		x++;
+		if (pthread_create(&thread_tab[THREAD_NB], NULL, &lets_cast2, list)
+			!= 0)
+			ft_fail("Error: Multi-threading failed.", list);
+		pthread_join(thread_tab[THREAD_NB], NULL);
+		list->start += calcul;
+		list->limit += calcul;
+		THREAD_NB--;
 	}
+	THREAD_NB = stamp;
 	fill_tab(list, list->minimap, 0, 0);
 }

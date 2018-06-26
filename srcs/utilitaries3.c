@@ -46,3 +46,25 @@ void	texture_mode(t_mlx *list)
 		image_replacer(list);
 	}
 }
+
+void					*lets_cast2(void *lis)
+{
+	t_mlx				*list;
+	int					x;
+	t_point				o;
+
+	list = lis;
+	x = list->start;
+	o.y = 0;
+	o.x = 0;
+	while (x < list->limit)
+	{
+		RAY = (PLAYER->a - FOV / 2) + ((float)x / (float)LA * FOV);
+		PLAYER->eye_x = cos(RAY);
+		PLAYER->eye_y = sin(RAY);
+		lets_search(x, list, o);
+		x++;
+	}
+	pthread_exit(NULL);
+}
+

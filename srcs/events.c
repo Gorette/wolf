@@ -69,9 +69,9 @@ int		move_dir(int key, t_mlx *list)
 int		move_side(int key, t_mlx *list)
 {
 	if (key == 123)
-		PLAYER->a -= 0.05;
+		PLAYER->a -= 0.03;
 	else if (key == 124)
-		PLAYER->a += 0.05;
+		PLAYER->a += 0.03;
 	if (PLAYER->a >= 6.30 || PLAYER->a <= -6.30)
 		PLAYER->a = 0;
 	return (0);
