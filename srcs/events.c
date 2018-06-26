@@ -36,7 +36,6 @@ int		key_pressed(int key, t_mlx *list)
 			choice_selected(list);
 		image_replacer(list);
 	}
-	read_move_tab(list);
 	return (0);
 }
 
