@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/26 15:11:32 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/25 14:29:12 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/27 15:41:15 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void		fill_tab(t_mlx *list, int **tab, int posy, int posx)
 	minimap_table(list);
 	count = -1;
 	posy = (int)(PLAYER->y) - 9 - 1;
-	while (++count < SQ_NB && ++posy < STAGE->map_ha * 2)
+	while (++count < SQ_NB && ++posy < PLAYER->y + SQ_NB / 2)
 	{
 		select = -1;
 		posx = (int)(PLAYER->x) - 9 - 1;
-		while (++select < SQ_NB && ++posx <= STAGE->map_la * 2)
+		while (++select < SQ_NB && ++posx < PLAYER->x + SQ_NB / 2)
 		{
 			tab[count][select] = 0;
 			if (posy < 0 || posy > STAGE->map_ha || posx < 0

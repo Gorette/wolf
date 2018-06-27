@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:50:11 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/27 14:44:13 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/27 15:43:34 by ceugene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			init_list2(t_mlx *list)
 	MENU_S = 0;
 	MENU_MNB = 0;
 	init_move_tab(list);
-	THREAD_NB = 6;
+	THREAD_NB = 5;
 }
 
 void			init_list(t_mlx *list)
