@@ -19,7 +19,7 @@ void			init_list2(t_mlx *list)
 	STEP = 0.025;
 	PLAYER = new_player(list);
 	FOV = 1.0472 / 2;
-	SPEED = 0.25;
+	SPEED = 0.22;
 	list->minimap_h = 100;
 	list->minimap_l = 100;
 	generate_texture(list);

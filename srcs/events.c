@@ -58,6 +58,8 @@ int		move_dir(int key, t_mlx *list)
 		x -= cos(PLAYER->a) * SPEED;
 		y -= sin(PLAYER->a) * SPEED;
 	}
+	if (ft_security(list, x, y, key) == 0)
+		return (-1);
 	PLAYER->x = x;
 	PLAYER->y = y;
 	if (MAP[(int)y][(int)x] == 'E')
