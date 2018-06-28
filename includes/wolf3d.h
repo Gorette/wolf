@@ -235,5 +235,6 @@ void					deactivate_key(int key, t_mlx *list);
 void					activate_key(int key, t_mlx *list);
 void					*lets_cast2(void *lis);
 void					lets_search(int x, t_mlx *list, t_point o);
+int					refresh(t_mlx *list);
 
 #endif

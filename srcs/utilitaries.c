@@ -27,7 +27,7 @@ void			let_mlx_loop(t_mlx *list)
 	mlx_hook(WIN_PTR, 17, 1L << 17, &window_closed, list);
 	mlx_hook(WIN_PTR, 2, 1L << 0, &key_pressed, list);
 	mlx_hook(WIN_PTR, 3, 1L << 1, &key_release, list);
-	mlx_loop_hook(MLX_PTR, &read_move_tab, list);
+	mlx_loop_hook(MLX_PTR, &refresh, list);
 	mlx_loop(MLX_PTR);
 }
 

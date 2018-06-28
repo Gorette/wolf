@@ -67,3 +67,14 @@ void		*lets_cast2(void *lis)
 	}
 	pthread_exit(NULL);
 }
+
+int					refresh(t_mlx *list)
+{
+	read_move_tab(list);
+	if (IN_MENU == 0)
+	{
+		mlx_put_image_to_window(MLX_PTR, WIN_PTR, IMG_PTR, 0, 0);
+		mlx_put_image_to_window(MLX_PTR, WIN_PTR, MMAP_PTR, 0, 0);
+	}
+	return (0);
+}
