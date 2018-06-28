@@ -6,7 +6,7 @@
 /*   By: axbal <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/30 14:46:42 by axbal             #+#    #+#             */
-/*   Updated: 2018/06/25 14:24:28 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 16:14:39 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ t_dot			new_dot(int x, int y)
 	return (new);
 }
 
-void			put_pixel(t_dot d, t_mlx *list, t_color c)
+void			put_pixel(t_dot d, t_mlx *list, char *img, t_color c)
 {
 	if (d.x >= 0 && d.x <= LA && d.y >= 0 && d.y < HA)
 	{
-		IMG_DATA[(int)((d.x * BPP) + (d.y * S_L) + 0)] = c.b;
-		IMG_DATA[(int)((d.x * BPP) + (d.y * S_L) + 1)] = c.g;
-		IMG_DATA[(int)((d.x * BPP) + (d.y * S_L) + 2)] = c.r;
-		IMG_DATA[(int)((d.x * BPP) + (d.y * S_L) + 3)] = c.a;
+		img[(int)((d.x * BPP) + (d.y * S_L) + 0)] = c.b;
+		img[(int)((d.x * BPP) + (d.y * S_L) + 1)] = c.g;
+		img[(int)((d.x * BPP) + (d.y * S_L) + 2)] = c.r;
+		img[(int)((d.x * BPP) + (d.y * S_L) + 3)] = c.a;
 	}
 }
 

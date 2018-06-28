@@ -6,13 +6,13 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:30:22 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/25 16:36:41 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 15:55:50 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-int		map_searcher(t_mlx *list)
+int			map_searcher(t_mlx *list)
 {
 	char	*str;
 	char	*str2;
@@ -35,7 +35,7 @@ int		map_searcher(t_mlx *list)
 	return (1);
 }
 
-void	texture_mode(t_mlx *list)
+void		texture_mode(t_mlx *list)
 {
 	if (!(IN_MENU))
 	{
@@ -47,11 +47,11 @@ void	texture_mode(t_mlx *list)
 	}
 }
 
-void					*lets_cast2(void *lis)
+void		*lets_cast2(void *lis)
 {
-	t_mlx				*list;
-	int					x;
-	t_point				o;
+	t_mlx	*list;
+	int		x;
+	t_point	o;
 
 	list = lis;
 	x = list->start;
@@ -67,4 +67,3 @@ void					*lets_cast2(void *lis)
 	}
 	pthread_exit(NULL);
 }
-

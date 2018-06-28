@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:50:05 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/27 15:34:40 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 16:59:23 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,11 @@ void	image_replacer(t_mlx *list)
 {
 	mlx_clear_window(MLX_PTR, WIN_PTR);
 	if (IN_MENU == 0)
+	{
 		lets_cast(list);
+		mlx_put_image_to_window(MLX_PTR, WIN_PTR, IMG_PTR, 0, 0);
+		mlx_put_image_to_window(MLX_PTR, WIN_PTR, MMAP_PTR, 0, 0);
+	}
 	else if (IN_MENU == 1)
 		lets_draw_menu(list);
-	mlx_put_image_to_window(MLX_PTR, WIN_PTR, IMG_PTR, 0, 0);
-	if (IN_MENU == 1)
-		lets_write(list);
-	else
-		mlx_put_image_to_window(MLX_PTR, WIN_PTR, MMAP_PTR, 0, 0);
 }

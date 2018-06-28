@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:45:28 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/25 14:28:19 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 17:09:04 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_color			new_color(int r, int g, int b, int a)
 	return (new);
 }
 
-void			att_text_color_to_image(t_mlx *list, int i, int pos, t_point o)
+void			txt_clr_to_img(t_mlx *list, int i, int pos, t_point o)
 {
 	if (TEX_ON && list->t[i].data[(int)o.x * list->t[i].bpp
 		+ (int)o.y * list->t[i].s_l] + 3 < 255)
@@ -62,11 +62,11 @@ void			color_squares(t_mlx *list, int startx, int starty, int wall)
 		s = startx - 1;
 		while (++s <= startx + SQ_S)
 		{
-			put_pixel(new_dot(s, c), list, new_color(clr, clr, clr, 0));
+			put_pixel(new_dot(s, c), list, IM, new_color(clr, clr, clr, 0));
 			if (wall == 3)
-				put_pixel(new_dot(s, c), list, new_color(200, clr, clr, 0));
+				put_pixel(new_dot(s, c), list, IM, new_color(200, clr, clr, 0));
 			if (wall == 4)
-				put_pixel(new_dot(s, c), list, new_color(clr, 200, clr, 0));
+				put_pixel(new_dot(s, c), list, IM, new_color(clr, 200, clr, 0));
 		}
 	}
 }
@@ -103,7 +103,7 @@ void			draw_fov(t_mlx *list)
 	double		ray;
 	t_dot		d;
 
-	ft_memset(MMAP_STR, 255, (LA * BPP + HA * S_L));
+	ft_memset(MMAP_STR, 255, ((LA - 1) * BPP + (HA - 1) * S_L));
 	d = new_dot(49, 49);
 	ray = -(FOV / 2);
 	while (ray < FOV / 2)

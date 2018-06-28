@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:48:20 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/27 15:32:28 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 17:00:50 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_mlx			*new_list(void)
 	new->move_tab = NULL;
 	new->minimap = NULL;
 	new->texture_mode = 1;
+	new->minimap_img_str = NULL;
 	return (new);
 }
 

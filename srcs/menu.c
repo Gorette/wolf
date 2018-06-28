@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:25:15 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/27 15:17:45 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 17:08:00 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,48 +69,29 @@ void		lets_highlight(t_mlx *list)
 {
 	int		i;
 	int		j;
-	int		pos;
+	t_dot	d;
+	t_color	c;
 
+	ft_memset(MMAP_STR, 255, ((LA - 1) * BPP + (HA - 1) * S_L));
+	c = new_color(60, 60, 110, 120);
 	i = 0;
 	while (i < 250)
 	{
 		j = 0;
 		while (j < 80)
 		{
-			pos = (((150 + i) * BPP) + ((280 + (90 * MENU_S) + j) * S_L));
-			IMG_DATA[pos + 0] += (char)30;
-			IMG_DATA[pos + 1] += (char)30;
-			IMG_DATA[pos + 2] += (char)30;
-			IMG_DATA[pos + 3] = (char)0;
+			d = new_dot((150 + i), (280 + (90 * MENU_S) + j));
+			put_pixel(d, list, MMAP_STR, c);
 			j++;
 		}
 		i++;
 	}
-	mlx_put_image_to_window(MLX_PTR, WIN_PTR, IMG_PTR, 0, 0);
+	mlx_put_image_to_window(MLX_PTR, WIN_PTR, M_IMG, 0, 0);
+	mlx_put_image_to_window(MLX_PTR, WIN_PTR, MMAP_PTR, 0, 0);
+	lets_write(list);
 }
 
 void		lets_draw_menu(t_mlx *list)
 {
-	int		i;
-	int		j;
-	int		pos;
-
-	bzero(IMG_DATA, S_L * HA);
-	i = 0;
-	while (i < LA)
-	{
-		j = 0;
-		while (j < HA)
-		{
-			pos = (i * BPP + j * S_L);
-			IMG_DATA[pos + 0] = (char)80;
-			IMG_DATA[pos + 1] = (char)30;
-			IMG_DATA[pos + 2] = (char)30;
-			IMG_DATA[pos + 3] = (char)0;
-			j++;
-		}
-		i++;
-	}
 	lets_highlight(list);
-	lets_write(list);
 }

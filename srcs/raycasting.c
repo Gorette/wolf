@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:46:06 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/27 15:34:32 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 15:57:01 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ void			lets_search(int x, t_mlx *list, t_point o)
 	lets_persp(x, dist, list, o);
 	DIST = dist;
 }
-
 
 void			lets_cast(t_mlx *list)
 {

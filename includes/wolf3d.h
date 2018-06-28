@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wolf.h                                             :+:      :+:    :+:   */
+/*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:26:30 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/25 16:42:26 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 17:06:00 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WOLF_H
-# define WOLF_H
+#ifndef WOLF3D_H
+# define WOLF3D_H
 
 # include "../minilibx_macos/mlx.h"
 # include "../libft/libft.h"
@@ -66,18 +66,20 @@
 # define MMAP_STR list->minimap_img_str
 # define TEX_ON list->texture_mode
 # define THREAD_NB list->thread_number
+# define IM list->img_data
+# define M_IMG list->menu_img
 
-typedef struct		s_util
+typedef struct			s_util
 {
-	float			ratio;
-	float			ratio_s;
-	int				c_x;
-	int				c_y;
-	int				growth;
-	float			c_ratio;
-	float			c_ratio_s;
-	int				color_index;
-}					t_util;
+	float				ratio;
+	float				ratio_s;
+	int					c_x;
+	int					c_y;
+	int					growth;
+	float				c_ratio;
+	float				c_ratio_s;
+	int					color_index;
+}						t_util;
 
 typedef struct			s_dot
 {
@@ -95,8 +97,8 @@ typedef struct			s_color
 
 typedef struct			s_point
 {
-	float		x;
-	float		y;
+	float				x;
+	float				y;
 }						t_point;
 
 typedef struct			s_texture
@@ -133,8 +135,8 @@ typedef struct			s_mlx
 	void				*win_ptr;
 	void				*img_ptr;
 	char				*img_data;
-	long				l;
-	long				h;
+	int					l;
+	int					h;
 	int					bit_pix;
 	int					size_line;
 	int					endian;
@@ -184,51 +186,54 @@ typedef struct			s_mlx
 	int					start;
 	int					limit;
 	int					thread_number;
+	void				*menu_img;
+	int					t1;
+	int					t2;
 }						t_mlx;
 
-void		ft_fail(char *str, t_mlx *list);
-t_mlx		*new_list(void);
-t_level		*new_stage(t_mlx *list);
-t_player	*new_player(t_mlx *list);
-void		read_map(t_mlx *list);
-void		lets_cast(t_mlx *list);
-int			key_release(int key, void *list);
-int			window_closed(t_mlx *list);
-void		let_mlx_loop(t_mlx *list);
-void		image_replacer(t_mlx *list);
-void		generate_texture(t_mlx *list);
-void		next_level(t_mlx *list);
-void		att_text_color_to_image(t_mlx *list, int i, int p, t_point o);
-float		get_ox(t_mlx *list, float dist, int i);
-int			key_pressed(int key, t_mlx *list);
-int			move_dir(int key, t_mlx *list);
-int			move_side(int key, t_mlx *list);
-int			ft_security(t_mlx *list, float x, float y, int key);
-void		color_sky_and_floor(int x, t_mlx *list);
-void		ft_draw_wall(t_mlx *list, int i, int x, t_point o);
-void		free_them_all(t_mlx *list);
-void		place_player(t_mlx *list);
-void		place_the_player2(t_mlx *list);
-void		fill_tab(t_mlx *list, int **tab, int posy, int posyx);
-void		minimap_table(t_mlx *list);
-void		color_squares(t_mlx *list, int startx, int starty, int wall);
-void		lets_draw_menu(t_mlx *list);
-void		lets_write(t_mlx *list);
-void		choice_selected(t_mlx *list);
-int			map_searcher(t_mlx *list);
-int			name_gen(t_mlx *list);
-void		put_pixel(t_dot d, t_mlx *list, t_color c);
-t_color		new_color(int r, int g, int b, int a);
-t_dot		new_dot(int x, int y);
-t_util		init_util(t_dot p1, t_dot p2, int mode);
-void		draw_line(t_dot p1, t_dot p2, t_mlx *list);
-void		draw_fov(t_mlx *list);
-void		texture_mode(t_mlx *list);
-void		init_move_tab(t_mlx *list);
-int			read_move_tab(t_mlx *list);
-void		deactivate_key(int key, t_mlx *list);
-void		activate_key(int key, t_mlx *list);
-void		*lets_cast2(void *lis);
-void		lets_search(int x, t_mlx *list, t_point o);
+void					ft_fail(char *str, t_mlx *list);
+t_mlx					*new_list(void);
+t_level					*new_stage(t_mlx *list);
+t_player				*new_player(t_mlx *list);
+void					read_map(t_mlx *list);
+void					lets_cast(t_mlx *list);
+int						key_release(int key, void *list);
+int						window_closed(t_mlx *list);
+void					let_mlx_loop(t_mlx *list);
+void					image_replacer(t_mlx *list);
+void					generate_texture(t_mlx *list);
+void					next_level(t_mlx *list);
+void					txt_clr_to_img(t_mlx *list, int i, int p, t_point o);
+float					get_ox(t_mlx *list, float dist, int i);
+int						key_pressed(int key, t_mlx *list);
+int						move_dir(int key, t_mlx *list);
+int						move_side(int key, t_mlx *list);
+int						ft_security(t_mlx *list, float x, float y, int key);
+void					color_sky_and_floor(int x, t_mlx *list);
+void					ft_draw_wall(t_mlx *list, int i, int x, t_point o);
+void					free_them_all(t_mlx *list);
+void					place_player(t_mlx *list);
+void					place_the_player2(t_mlx *list);
+void					fill_tab(t_mlx *list, int **tab, int posy, int posyx);
+void					minimap_table(t_mlx *list);
+void					color_squares(t_mlx *list, int x, int y, int w);
+void					lets_draw_menu(t_mlx *list);
+void					lets_write(t_mlx *list);
+void					choice_selected(t_mlx *list);
+int						map_searcher(t_mlx *list);
+int						name_gen(t_mlx *list);
+void					put_pixel(t_dot d, t_mlx *list, char *img, t_color c);
+t_color					new_color(int r, int g, int b, int a);
+t_dot					new_dot(int x, int y);
+t_util					init_util(t_dot p1, t_dot p2, int mode);
+void					draw_line(t_dot p1, t_dot p2, t_mlx *list);
+void					draw_fov(t_mlx *list);
+void					texture_mode(t_mlx *list);
+void					init_move_tab(t_mlx *list);
+int						read_move_tab(t_mlx *list);
+void					deactivate_key(int key, t_mlx *list);
+void					activate_key(int key, t_mlx *list);
+void					*lets_cast2(void *lis);
+void					lets_search(int x, t_mlx *list, t_point o);
 
 #endif

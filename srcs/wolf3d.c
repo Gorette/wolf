@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 13:50:11 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/27 15:43:34 by ceugene          ###   ########.fr       */
+/*   Updated: 2018/06/28 17:06:59 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void			init_list(t_mlx *list)
 		ft_fail("Error: Unable to create image.", list);
 	if (!(MMAP_STR = mlx_get_data_addr(MMAP_PTR, &BPP, &S_L, &END)))
 		ft_fail("Error: Unable to access image data.", list);
+	if (!(M_IMG = mlx_xpm_file_to_image(MLX_PTR, "./tex/menu.xpm", &LA, &HA)))
+		ft_fail("Error: Unable to create image.", list);
 	BPP = BPP / 8;
 	init_list2(list);
 }
