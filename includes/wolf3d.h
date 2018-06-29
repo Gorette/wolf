@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:26:30 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/28 17:06:00 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/29 16:17:48 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,6 +235,6 @@ void					deactivate_key(int key, t_mlx *list);
 void					activate_key(int key, t_mlx *list);
 void					*lets_cast2(void *lis);
 void					lets_search(int x, t_mlx *list, t_point o);
-int					refresh(t_mlx *list);
+int						refresh(t_mlx *list);
 
 #endif

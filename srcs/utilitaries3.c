@@ -6,7 +6,7 @@
 /*   By: ceugene <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:30:22 by ceugene           #+#    #+#             */
-/*   Updated: 2018/06/28 15:55:50 by axbal            ###   ########.fr       */
+/*   Updated: 2018/06/29 16:17:37 by axbal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void		*lets_cast2(void *lis)
 	pthread_exit(NULL);
 }
 
-int					refresh(t_mlx *list)
+int			refresh(t_mlx *list)
 {
 	read_move_tab(list);
 	if (IN_MENU == 0)
